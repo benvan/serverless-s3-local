@@ -306,7 +306,11 @@ class ServerlessS3Local {
             console.error('Error while running handler', e);
           }
           finally {
-            process.env = oldEnv;
+            // Don't do this :(
+            // Any asynchronously running code will break.
+            // This is a shitfix but thereisnotimeomg
+            
+//             process.env = oldEnv;
           }
         };
 
